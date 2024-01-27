@@ -6,7 +6,7 @@ body:
       label: Prerequisites
       description: To rule out invalid issues, confirm and check each one of the checkboxes.
       options:
-        - label: I performed a [cursory search of the issue tracker](https://github.com/lassekongo83/adw-gtk3/issues?q=is%3Aissue) to avoid opening a duplicate issue.
+        - label: I performed a [cursory search of the issue tracker](https://github.com/LSeelig/adw-gtk3-white-headers/issues?q=is%3Aissue) to avoid opening a duplicate issue.
           required: true
 
   - type: checkboxes
