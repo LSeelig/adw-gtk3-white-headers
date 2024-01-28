@@ -77,4 +77,4 @@ See [CONTRIBUTING.md](https://github.com/lseelig/adw-gtk3-white-headers/blob/mai
 
 - Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
 - Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors
-- Adw-gtk3-white-headers contributors: https://github.com/lseelig/adw-gtk3/white-headers/contributors
+- Adw-gtk3-white-headers contributors: https://github.com/lseelig/adw-gtk3-white-headers/contributors
