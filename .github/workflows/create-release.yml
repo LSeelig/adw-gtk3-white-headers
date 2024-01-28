@@ -22,13 +22,13 @@ jobs:
         VERSION=$(cat version)
         MAJOR=$(echo $VERSION | cut -d'.' -f1)
         MINOR=$(echo $VERSION | cut -d'.' -f2)
-        FVERSION=$(cat fork-version)
-        FMAJOR=$(echo $FVERSION | cut -d'.' -f1)
-        FMINOR=$(echo $FVERSION | cut -d'.' -f2)
+        FORK_VERSION=$(cat fork-version)
+        FMAJOR=$(echo $FORK_VERSION | cut -d'.' -f1)
+        FMINOR=$(echo $FORK_VERSION | cut -d'.' -f2)
         FMINOR=$((FMINOR + 1))
         echo "$FMAJOR.$FMINOR" > fork-version
         echo "version=$MAJOR.$MINOR" >> $GITHUB_ENV
-        echo "fversion=$FMAJOR.$FMINOR" >> $GITHUB_ENV
+        echo "fork-version=$FMAJOR.$FMINOR" >> $GITHUB_ENV
 
     - name: Build theme
       run: |
@@ -52,19 +52,19 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v${{ env.fversion }}
-        name: adw-gtk3-white-headers v${{ env.fversion }}
+        tag_name: v${{ env.fork-version }}
+        name: adw-gtk3-white-headers v${{ env.fork-version }}
         body: >
           Based on adw-gtk3 v${{ env.version }}
         draft: false
         prerelease: false
         files: |
-          /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fversion }}.tar.xz
+          /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fork-version }}.tar.xz
 
     - name: Commit and push
       run: |
         git config user.name "GitHub-Actions"
         git config user.email "<>"
-        git add fversion
-        git commit -m "Bump version to ${{ env.fversion }}"
+        git add fork-version
+        git commit -m "Bump version to ${{ env.fork-version }}"
         git push
