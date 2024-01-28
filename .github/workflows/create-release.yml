@@ -22,22 +22,21 @@ jobs:
         VERSION=$(cat version)
         MAJOR=$(echo $VERSION | cut -d'.' -f1)
         MINOR=$(echo $VERSION | cut -d'.' -f2)
-        if (( MINOR >= 10 )); then
-          MAJOR=$((MAJOR + 1))
-          MINOR=0
-        else
-          MINOR=$((MINOR + 1))
-        fi
-        echo "$MAJOR.$MINOR" > version
+        FVERSION=$(cat fork-version)
+        FMAJOR=$(echo $FVERSION | cut -d'.' -f1)
+        FMINOR=$(echo $FVERSION | cut -d'.' -f2)
+        FMINOR=$((FMINOR + 1))
+        echo "$FMAJOR.$FMINOR" > fork-version
         echo "version=$MAJOR.$MINOR" >> $GITHUB_ENV
+        echo "fversion=$FMAJOR.$FMINOR" >> $GITHUB_ENV
 
     - name: Build theme
       run: |
         meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
         ninja -C build install
         cd /home/runner/work/${{ github.repository }}/build/share/themes
-        tar -cJf adw-gtk3.tar.xz adw-gtk3 adw-gtk3-dark
-        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+        tar -cJf adw-gtk3-fork.tar.xz adw-gtk3-fork adw-gtk3-fork-dark
+        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-fork.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.version }}.tar.xz
 
     - name: Get previous release version
       id: prev_release
@@ -53,19 +52,19 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v${{ env.version }}
-        name: adw-gtk3 v${{ env.version }}
+        tag_name: v${{ env.fversion }}
+        name: adw-gtk3-white-headers v${{ env.fversion }}
         body: >
-          Full Changelog: https://github.com/${{ github.repository }}/compare/${{ env.prev_version }}...v${{ env.version }}
+          Based on adw-gtk3 v${{ env.version }}
         draft: false
         prerelease: false
         files: |
-          /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+          /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fversion }}.tar.xz
 
     - name: Commit and push
       run: |
         git config user.name "GitHub-Actions"
         git config user.email "<>"
-        git add version
-        git commit -m "Bump version to ${{ env.version }}"
+        git add fversion
+        git commit -m "Bump version to ${{ env.fversion }}"
         git push
