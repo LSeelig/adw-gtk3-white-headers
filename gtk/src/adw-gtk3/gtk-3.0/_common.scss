@@ -3650,6 +3650,8 @@ printdialog {
     border: 1px solid $borders_color;
     background: white;
     padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 
     &:backdrop {
       color: $backdrop_fg_color;
@@ -3983,14 +3985,14 @@ filechooserbutton:drop(active) {
     &:dir(ltr),
     &.left,
     &.left:dir(rtl) {
-      border-right: 1px solid $sidebar_shade_color;
+      border-right: 1px solid $sidebar_border_color;
       border-left-style: none;
     }
 
     @at-root %sidebar_right,
     &:dir(rtl),
     &.right {
-      border-left: 1px solid $sidebar_shade_color;
+      border-left: 1px solid $sidebar_border_color;
       border-right-style: none;
     }
   }
@@ -4035,7 +4037,7 @@ stacksidebar {
 }
 
 separator.sidebar {
-  background-color: $borders_color;
+  background-color: $sidebar_border_color;
   //margin: 0 4px;
 
   &.selection-mode,
