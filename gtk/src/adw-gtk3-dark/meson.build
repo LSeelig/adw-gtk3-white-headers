@@ -1,8 +1,8 @@
-theme_dir = join_paths(get_option('datadir'), 'themes', meson.project_name()+'-fork-dark')
+theme_dir = join_paths(get_option('datadir'), 'themes', meson.project_name()+'-wh-dark')
 
 conf_data = configuration_data()
-conf_data.set('ThemeName', meson.project_name()+'-fork')
-conf_data.set('VariantThemeName', meson.project_name()+'-fork-dark')
+conf_data.set('ThemeName', meson.project_name()+'-wh')
+conf_data.set('VariantThemeName', meson.project_name()+'-wh-dark')
 configure_file(input : '../index.theme.in',
                output : 'index.theme',
                configuration : conf_data,

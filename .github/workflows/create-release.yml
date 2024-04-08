@@ -35,8 +35,8 @@ jobs:
         meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
         ninja -C build install
         cd /home/runner/work/${{ github.repository }}/build/share/themes
-        tar -cJf adw-gtk3-fork.tar.xz adw-gtk3-fork adw-gtk3-fork-dark
-        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-fork.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.version }}.tar.xz
+        tar -cJf adw-gtk3-wh.tar.xz adw-gtk3-wh adw-gtk3-wh-dark
+        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-wh.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.version }}.tar.xz
 
     - name: Get previous release version
       id: prev_release

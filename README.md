@@ -7,7 +7,7 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 | Light theme (adw-gtk3) | Light theme (fork) | Dark theme |
 |:----------------------:|:------------------:|:----------:|
-| ![adw-gtk3-light](preview-light.png?raw=true) | ![adw-gtk3-fork](preview-fork.png?raw=true) | ![adw-gtk3-dark](preview-dark.png?raw=true) |
+| ![adw-gtk3-light](preview-light.png?raw=true) | ![adw-gtk3-wh](preview-wh.png?raw=true) | ![adw-gtk3-dark](preview-dark.png?raw=true) |
 
 <sup>*Also Used: [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners) and [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)*</sup>
 
@@ -40,11 +40,11 @@ Alternatively you can set the theme with your terminal:
 
 Change the theme to the light variant:
 ```bash
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-fork' && gsettings set org.gnome.desktop.interface color-scheme 'default'
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-wh' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 Change the theme to the dark variant:
 ```bash
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-fork-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-wh-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 Revert to GNOME's default theme:
 ```bash
@@ -65,9 +65,9 @@ See [CONTRIBUTING.md](https://github.com/lseelig/adw-gtk3-white-headers/blob/mai
 
 </div>
 
-- For a local installation in `~/.themes`: `rm -r ~/.themes/adw-gtk3-fork*`
-- For a local installation in `~/.local/share/themes`: `rm -r ~/.local/share/themes/adw-gtk3-fork*`
-- For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3-fork*`
+- For a local installation in `~/.themes`: `rm -r ~/.themes/adw-gtk3-wh*`
+- For a local installation in `~/.local/share/themes`: `rm -r ~/.local/share/themes/adw-gtk3-wh*`
+- For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3-wh*`
 
 <div align="center">
 
