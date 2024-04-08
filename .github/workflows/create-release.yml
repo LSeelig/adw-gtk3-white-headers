@@ -55,7 +55,7 @@ jobs:
         tag_name: v${{ env.fork-version }}
         name: adw-gtk3-white-headers v${{ env.fork-version }}
         body: >
-          Full Changelog: https://github.com/lassekongo83/adw-gtk3/compare/${{ env.prev_version }}...v${{ env.fork-version }}
+          Full Changelog: https://github.com/${{ github.repository }}/compare/${{ env.prev_version }}...v${{ env.fork-version }}
           Based on adw-gtk3 v${{ env.version }}
         draft: false
         prerelease: false
