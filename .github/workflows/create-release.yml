@@ -36,7 +36,7 @@ jobs:
         ninja -C build install
         cd /home/runner/work/${{ github.repository }}/build/share/themes
         tar -cJf adw-gtk3-wh.tar.xz adw-gtk3-wh adw-gtk3-wh-dark
-        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-wh.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.version }}.tar.xz
+        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-wh.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fork-version }}.tar.xz
 
     - name: Get previous release version
       id: prev_release
