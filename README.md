@@ -21,6 +21,8 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 **Note:** You may want to install this alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to its exec.
 
+**Note:** GTK3 doesn't support the accent color feature introduced in GNOME 47. Only libadwaita does.
+
 ### Tarball
 1. Go to the [releases](https://github.com/lseelig/adw-gtk3-white-headers/releases) section and download the latest `tar.xz` file.
 2. Extract the file to `~/.themes/` (recommended), `~/.local/share/themes/`, (or `/usr/share/themes` if you want to install it for all users).
