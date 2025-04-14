@@ -71,13 +71,10 @@ See [CONTRIBUTING.md](https://github.com/lseelig/adw-gtk3-white-headers/blob/mai
 <div align="center">
 
 ## Customizing
-If you want to change your accent color for most applications in GNOME 47 or later, then you can use the small cli program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).
-
-![adw-gtk3-customized](preview-customized.png?raw=true)
-
-<sup>*Wallpaper: [here](https://i.imgur.com/ZbyNlmh.png) | Customization: [Peninsula-dark](https://github.com/lassekongo83/adw-colors/blob/main/themes/Peninsula-dark/gtk.css)*</sup>
 
 </div>
+
+If you want to change your accent color for most applications in GNOME 47 or later, then you can use the small cli program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).
 
 Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
