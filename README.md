@@ -23,18 +23,27 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 ### Tarball
 1. Go to the [releases](https://github.com/lseelig/adw-gtk3-white-headers/releases) section and download the latest `tar.xz` file.
-2. Extract the file to `~/.themes/` (recommended), `~/.local/share/themes/`, (or `/usr/share/themes` if you want to install it for all users).
+2. Extract the file to `~/.local/share/themes/`
 
-**Note:** Do not extract it to multiple locations. Only use one path. If you use flatpak applications, you **MUST** extract it to `~/.themes/`.
+**Note:** Do not extract it to multiple locations. Only use one path.
 
-3. If you use flatpak applications, you will have to give flatpaks access to the theme. From a terminal, run as root:
+3. If you use flatpak applications it's recommended to use flatpak override. From a terminal run:
+```bash
+sudo flatpak override --filesystem=xdg-data/themes
 ```
-flatpak override --filesystem=~/.themes:ro
+
+**Note:** This requires that the theme is installed in `~/.local/share/themes/`. Installing the theme as root, with a package manager, or any other method is not supported when it comes to flatpak.
+
+To prevent outdated packages from flathub being installed, run: `sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark`
+
+**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them and prevent them from being installed with:
+```bash
+flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
 ```
+
+4. You can then enable adw-gtk3-wh in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 **Note:** Both the fork and the original project have a dark variant. They should be identical, as the white headerbars only appear in light mode, but I packaged a dark theme anyways so it will toggle correctly when using recent versions of GNOME or an auto-switch extension.
-
-You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 Alternatively you can set the theme with your terminal:
 
@@ -91,13 +100,11 @@ Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only
 - **xfwm4:** https://github.com/FabianOvrWrt/adw-xfwm4
 <div align="center">
 
->>>>>>> upstream/main
 ## How to uninstall the theme(s)
 
 </div>
 
-- For a local installation in `~/.themes`: `rm -r ~/.themes/adw-gtk3-wh*`
-- For a local installation in `~/.local/share/themes`: `rm -r ~/.local/share/themes/adw-gtk3-wh*`
+- For a local installation: `rm -r ~/.local/share/themes/adw-gtk3-wh*`
 - For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3-wh*`
 
 <div align="center">
