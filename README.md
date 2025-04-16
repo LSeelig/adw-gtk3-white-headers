@@ -27,19 +27,12 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 **Note:** Do not extract it to multiple locations. Only use one path.
 
-3. If you use flatpak applications it's recommended to use flatpak override. From a terminal run:
+3. If you want to theme your flatpak applications, you must use flatpak override. From a terminal run:
 ```bash
 sudo flatpak override --filesystem=xdg-data/themes
 ```
 
 **Note:** This requires that the theme is installed in `~/.local/share/themes/`. Installing the theme as root, with a package manager, or any other method is not supported when it comes to flatpak.
-
-To prevent outdated packages from flathub being installed, run: `sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark`
-
-**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them and prevent them from being installed with:
-```bash
-flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
-```
 
 4. You can then enable adw-gtk3-wh in the application `gnome-tweaks`. (Some applications may require a relog.)
 
