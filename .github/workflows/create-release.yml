@@ -13,8 +13,16 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt-get update && sudo apt-get -y install ninja-build sassc
+        sudo apt-get update && sudo apt-get -y install ninja-build
         sudo pip3 install meson
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Sass globally
+      run: npm install -g sass
 
     - name: Update version
       id: update_version
@@ -35,8 +43,8 @@ jobs:
         meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
         ninja -C build install
         cd /home/runner/work/${{ github.repository }}/build/share/themes
-        tar -cJf adw-gtk3-wh.tar.xz adw-gtk3-wh adw-gtk3-wh-dark
-        mv /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-wh.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fork-version }}.tar.xz
+        tar -cJf ${{ github.event.repository.name }}.tar.xz ${{ github.event.repository.name }} ${{ github.event.repository.name }}-dark
+        mv /home/runner/work/${{ github.repository }}/build/share/themes/${{ github.event.repository.name }}.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/${{ github.event.repository.name }}v${{ env.fork-version }}.tar.xz
 
     - name: Get previous release version
       id: prev_release
@@ -53,14 +61,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v${{ env.fork-version }}
-        name: adw-gtk3-white-headers v${{ env.fork-version }}
+        name: ${{ github.event.repository.name }} v${{ env.fork-version }}
         body: >
           Full Changelog: https://github.com/${{ github.repository }}/compare/${{ env.prev_version }}...v${{ env.fork-version }}
           Based on adw-gtk3 v${{ env.version }}
         draft: false
         prerelease: false
         files: |
-          /home/runner/work/${{ github.repository }}/build/share/themes/adw-gtk3-white-headersv${{ env.fork-version }}.tar.xz
+          /home/runner/work/${{ github.repository }}/build/share/themes/${{ github.event.repository.name }}v${{ env.fork-version }}.tar.xz
 
     - name: Commit and push
       run: |

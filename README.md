@@ -1,103 +1,109 @@
 <div align="center">
-
+  
 # adw-gtk3-white-headers
 A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restores the white headerbars introduced with Libadwaita 1.4/GNOME 45.
 
 <sup>*White headerbars were [removed](https://github.com/lassekongo83/adw-gtk3/commit/e20a8ed9d295304544e3a74538b324000f933a83) from adw-gtk3 because they can [reduce the legibility of some apps](https://github.com/lassekongo83/adw-gtk3/issues/247). Please do not make any issue reports for this fork in the original repo.*</sup>
 
-| Light theme (adw-gtk3) | Light theme (fork) | Dark theme |
-|:----------------------:|:------------------:|:----------:|
-| ![adw-gtk3-light](preview-light.png?raw=true) | ![adw-gtk3-wh](preview-wh.png?raw=true) | ![adw-gtk3-dark](preview-dark.png?raw=true) |
+</div>
 
-<sup>*Also Used: [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners) and [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)*</sup>
+<p align="center">
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#customization">Customization</a> •
+  <a href="#related-projects">Related Projects</a> •
+  <a href="#credits">Credits</a>
+</p>
+
+<div align="center">
+
+| Light theme (fork) | Light theme (adw-gtk3) | Dark theme (either)|
+|:-----------:|:-----------:|:----------:|
+| ![adw-gtk3-light](images/preview-wh.png?raw=true) | ![adw-gtk3-light](images/preview-light.png?raw=true) | ![adw-gtk3-dark](images/preview-dark.png?raw=true) |
+
+<sup>*Wallpapers: [here](https://i.imgur.com/kU8D1nV.png) and [here](https://old.reddit.com/r/wallpaper/comments/1f8hlcr/wavy_mountain_3840x2160/)*</sup>
+
+</div>
+
+<div align="center">
+  
+## How to Use
 
 </div>
 
 <div align="center">
 
-## How to install
+| Tarball | Repository | Flatpak | Source |
+|:---:|:---:|:---:|:---:|
+| 📦 [Download](https://github.com/lseelig/adw-gtk3-wh/releases/latest)  | ⬇️ [Unavailable](#repositories) | 📦 [See info below](#flatpak) | 🔧 [More information](src/README.md) |
+
+If you download the tarball, then extract the content of the file to: `~/.local/share/themes/`
 
 </div>
 
-**Note:** You may want to install this alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to its exec.
+### Repositories
+Unfortunately, this fork is not packaged in any repositories.
 
-### Tarball
-1. Go to the [releases](https://github.com/lseelig/adw-gtk3-white-headers/releases) section and download the latest `tar.xz` file.
-2. Extract the file to `~/.local/share/themes/`
-
-**Note:** Do not extract it to multiple locations. Only use one path.
-
-3. If you want to theme your flatpak applications, you must use flatpak override. From a terminal run:
+### Flatpak
+This fork cannot currently be installed from Flathub, so flatpak applications will not be styled unless you install from the [tarball](https://github.com/LSeelig/adw-gtk3-white-headers/releases/latest) (or the [source](src/README.md)) to `~/.local/share/themes` and use flatpak override:
 ```bash
 sudo flatpak override --filesystem=xdg-data/themes
 ```
+#### How to activate the theme
 
-**Note:** This requires that the theme is installed in `~/.local/share/themes/`. Installing the theme as root, with a package manager, or any other method is not supported when it comes to flatpak.
+<sup>You may want to install this alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to the exec in its desktop entry.</sup>
 
-4. You can then enable adw-gtk3-wh in the application `gnome-tweaks`. (Some applications may require a relog.)
+1. Install `gnome-tweaks` and set the theme under *Appearance > Legacy Applications*. For dark themes, adjust in `gnome-control-center` > *Appearance*.
+2. Optional: You can also use `gsettings` to switch themes:
 
-**Note:** Both the fork and the original project have a dark variant. They should be identical, as the white headerbars only appear in light mode, but I packaged a dark theme anyways so it will toggle correctly when using recent versions of GNOME or an auto-switch extension.
-
-Alternatively you can set the theme with your terminal:
-
-Change the theme to the light variant:
+Light theme:
 ```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-wh' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
-Change the theme to the dark variant:
+Dark theme (identical to adw-gtk3-dark but useful if you use a [toggle](https://gitlab.com/rmnvgr/nightthemeswitcher-gnome-shell-extension)):
 ```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-wh-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
-Revert to GNOME's default theme:
+Revert to default:
 ```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 
-### Other installation options
-This is a small fork, so there are no distro packages nor a flatpak, though as detailed above, the theme will still apply to flatpak. If you want updates from your distro's package manager, you will need to use the original project.
-
-### Installation from source
-This will install the latest version from the main branch. Use this installation method if you want to contribute and help testing the theme.
-
-See [CONTRIBUTING.md](https://github.com/lseelig/adw-gtk3-white-headers/blob/main/CONTRIBUTING.md) for the instructions.
-
 <div align="center">
 
-## Customizing
+## Customization
+Adw-gtk3 and libadwaita can be customized with GTK named colors, but this fork is untested. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
+
+<sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).</sub>
+
+![adw-gtk3-customized](images/preview-customized.png?raw=true)
+
+<sup>*Wallpaper: [here](https://i.imgur.com/ZbyNlmh.png)* | *Customization: [Peninsula-dark](thttps://github.com/lassekongo83/adw-colors/tree/main/themes/Peninsula-dark)*</sup>
 
 </div>
 
-If you want to change your accent color for most applications in GNOME 47 or later, then you can use the small cli program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).
-
-Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
-
-Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only libadwaita does.
-
 <div align="center">
 
-## For more consistency
+## Related Projects
 
 </div>
 
-- **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
-- **GTK2:** https://github.com/eylles/adw-gtk2-colorizer
-- **Gimp 3:** https://github.com/dp0sk/adw-gimp3
-- **Kvantum:** https://github.com/GabePoel/KvLibadwaita
-- **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
-- **Thunderbird:** https://github.com/rafaelmardojai/thunderbird-gnome-theme
-- **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
-- **VSCode:** https://github.com/piousdeer/vscode-adwaita
-- **Discord:** https://github.com/GeopJr/DNOME
-- **Obsidian:** https://github.com/birneee/obsidian-adwaita-theme
-- **xfwm4:** https://github.com/FabianOvrWrt/adw-xfwm4
 <div align="center">
 
-## How to uninstall the theme(s)
+| Software | URL |
+|:---|:---|
+| Adw-gtk3 (original) | https://github.com/lassekongo83/adw-gtk3 |
+| GTK2 | https://github.com/eylles/adw-gtk2-colorizer |
+| Gimp 3 | https://github.com/dp0sk/adw-gimp3 |
+| Kvantum | https://github.com/GabePoel/KvLibadwaita |
+| Firefox | https://github.com/rafaelmardojai/firefox-gnome-theme |
+| Thunderbird | https://github.com/rafaelmardojai/thunderbird-gnome-theme |
+| Steam | https://github.com/tkashkin/Adwaita-for-Steam |
+| VSCode | https://github.com/piousdeer/vscode-adwaita |
+| Discord | https://github.com/GeopJr/DNOME |
+| Obsidian | https://github.com/birneee/obsidian-adwaita-theme |
+| xfwm4 | https://github.com/FabianOvrWrt/adw-xfwm4 |
 
 </div>
-
-- For a local installation: `rm -r ~/.local/share/themes/adw-gtk3-wh*`
-- For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3-wh*`
 
 <div align="center">
 
@@ -105,6 +111,10 @@ Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only
 
 </div>
 
-- Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
-- Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors
-- Adw-gtk3-white-headers contributors: https://github.com/lseelig/adw-gtk3-white-headers/contributors
+Special thanks to:
+
+* [@Pryka](https://github.com/Pryka) (Flatpak)
+* [@solopasha](https://github.com/solopasha) (Fedora)
+* [@dusansimic](https://github.com/dusansimic) (AUR)
+* [@julianfairfax](https://github.com/julianfairfax)
+
