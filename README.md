@@ -111,10 +111,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors, but this fork i
 
 </div>
 
-Special thanks to:
-
-* [@Pryka](https://github.com/Pryka) (Flatpak)
-* [@solopasha](https://github.com/solopasha) (Fedora)
-* [@dusansimic](https://github.com/dusansimic) (AUR)
-* [@julianfairfax](https://github.com/julianfairfax)
+- Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
+- Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors
+- Adw-gtk3-white-headers contributors: https://github.com/lseelig/adw-gtk3-white-headers/contributors
 
