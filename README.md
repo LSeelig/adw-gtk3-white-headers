@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 # adw-gtk3-white-headers
 A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restores the white headerbars introduced with Libadwaita 1.4/GNOME 45.
 
@@ -16,16 +16,16 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 <div align="center">
 
-| Light theme (fork) | Light theme (adw-gtk3) | Dark theme (either)|
+| Light theme (adw-gtk3-wh) | Light theme (adw-gtk3) | Dark theme (either)|
 |:-----------:|:-----------:|:----------:|
-| ![adw-gtk3-light](images/preview-wh.png?raw=true) | ![adw-gtk3-light](images/preview-light.png?raw=true) | ![adw-gtk3-dark](images/preview-dark.png?raw=true) |
+| ![adw-gtk3-wh](images/preview-fork.png?raw=true) | ![adw-gtk3-light](images/preview-light.png?raw=true) | ![adw-gtk3-dark](images/preview-dark.png?raw=true) |
 
-<sup>*Wallpapers: [here](https://i.imgur.com/kU8D1nV.png) and [here](https://old.reddit.com/r/wallpaper/comments/1f8hlcr/wavy_mountain_3840x2160/)*</sup>
+<sup>*Also Used: [Rounded Window Corners](https://github.com/yilozt/rounded-window-corners) and [Night Theme Switcher](https://gitlab.com/rmnvgr/nightthemeswitcher-gnome-shell-extension)*</sup>
 
 </div>
 
 <div align="center">
-  
+
 ## How to Use
 
 </div>
@@ -50,7 +50,7 @@ sudo flatpak override --filesystem=xdg-data/themes
 ```
 #### How to activate the theme
 
-<sup>You may want to install this alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to the exec in its desktop entry.</sup>
+<sup>You may want to install this fork alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to the exec in its desktop entry.</sup>
 
 1. Install `gnome-tweaks` and set the theme under *Appearance > Legacy Applications*. For dark themes, adjust in `gnome-control-center` > *Appearance*.
 2. Optional: You can also use `gsettings` to switch themes:
@@ -71,13 +71,11 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 <div align="center">
 
 ## Customization
-Adw-gtk3 and libadwaita can be customized with GTK named colors, but this fork is untested. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
+Adw-gtk3, adw-gtk3-wh and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
 <sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).</sub>
 
-![adw-gtk3-customized](images/preview-customized.png?raw=true)
-
-<sup>*Wallpaper: [here](https://i.imgur.com/ZbyNlmh.png)* | *Customization: [Peninsula-dark](thttps://github.com/lassekongo83/adw-colors/tree/main/themes/Peninsula-dark)*</sup>
+![adw-gtk3-wh-accent](images/preview-accent.png?raw=true)
 
 </div>
 
@@ -112,6 +110,4 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors, but this fork i
 </div>
 
 - Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
-- Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors
-- Adw-gtk3-white-headers contributors: https://github.com/lseelig/adw-gtk3-white-headers/contributors
-
+- Contributors: https://github.com/lseelig/adw-gtk3-white-headers/contributors
