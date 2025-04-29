@@ -43,7 +43,7 @@ jobs:
         meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
         ninja -C build install
         cd /home/runner/work/${{ github.repository }}/build/share/themes
-        tar -cJf ${{ github.event.repository.name }}.tar.xz ${{ github.event.repository.name }} ${{ github.event.repository.name }}-dark
+        tar -cJf ${{ github.event.repository.name }}.tar.xz adw-gtk3-wh adw-gtk3-wh-dark
         mv /home/runner/work/${{ github.repository }}/build/share/themes/${{ github.event.repository.name }}.tar.xz /home/runner/work/${{ github.repository }}/build/share/themes/${{ github.event.repository.name }}v${{ env.fork-version }}.tar.xz
 
     - name: Get previous release version
