@@ -43,12 +43,10 @@ button {
     border-radius: $button_radius;
     transition: $button_transition;
     font-weight: bold;
-    outline-style: solid;
-    outline-offset: -2px;
-    outline-width: 2px;
     -gtk-outline-radius: calc($button-radius - 2px);
 
     @include button(normal);
+    @include focus-ring($transition: $button_transition);
 
     @at-root %button_basic_flat,
     &.flat {
@@ -224,7 +222,6 @@ button {
 
   // Suggested and Destructive Action buttons
   // Suggested Action buttons
-  %suggested_action_button,
   &.suggested-action {
     @include button(normal, $accent_bg_color, white);
 
@@ -269,7 +266,6 @@ button {
   }
 
   // Destructive Action buttons
-  %destructive_action_button,
   &.destructive-action {
     @include button(normal, $destructive_button_color, $destructive_color);
 
@@ -545,7 +541,6 @@ button.toggle:not(.image-button) {
 .osd .linked > button { border-color: transparent; }
 
 // Linked stuff
-// Would like to use as a module, but it messes with the css ordering
 %linked_middle {
   border-left-color: $border_color;
   border-right-color: $border_color;

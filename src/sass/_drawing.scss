@@ -5,6 +5,9 @@
 @use 'colors' as *;
 
 $focus_border_color: gtkalpha($accent_color, 0.5);
+$focus_transition: outline-color 200ms $ease-out-quad,
+                   outline-width 200ms $ease-out-quad,
+                   outline-offset 200ms $ease-out-quad;
 
 @function _widget_edge($c:$borders_edge) {
   @if $c == none { @return none; }
@@ -20,6 +23,20 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   box-shadow: $shadows;
+}
+
+@mixin focus-ring($target: null, $width: 2px, $offset: -$width, $outer: false, $focus-state: ':focus', $transition: null) {
+  & #{$target} {
+    outline: 0 solid transparent;
+    outline-offset: if($outer, $offset + 4px, $offset + $width + 4px);
+    transition: $focus_transition, $transition;
+  }
+
+  &#{$focus-state} #{$target} {
+    outline-color: $focus_border_color;
+    outline-width: $width;
+    outline-offset: $offset;
+  }
 }
 
 // *********
@@ -194,30 +211,26 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
 
   @else if $t==osd {
   // normal osd button
-    color: $osd_fg_color;
+    color: white;
     border-color: transparent;
-    background-color: transparentize(black, .35);
+    background-color: rgba(0,0,0,0.65);
     background-clip: padding-box;
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-hover {
-  // active osd button
+  // hover osd button
     color: white;
     border-color: transparent;
-    background-color: gtkalpha(gtkmix(black, currentColor, 85%), .65);
+    background-color: gtkmix(black, currentColor, 75%);
     background-clip: padding-box;
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-active {
   // active osd button
     color: white;
     border-color: transparent;
-    background-color: gtkalpha(gtkmix(black, currentColor, 75%), .65);
+    background-color: gtkmix(black, currentColor, 80%);
     background-clip: padding-box;
-
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-disabled {
