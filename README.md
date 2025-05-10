@@ -97,7 +97,7 @@ Adw-gtk3, adw-gtk3-wh and libadwaita can be customized with GTK named colors. Se
 | Thunderbird | https://github.com/rafaelmardojai/thunderbird-gnome-theme |
 | Steam | https://github.com/tkashkin/Adwaita-for-Steam |
 | VSCode | https://github.com/piousdeer/vscode-adwaita |
-| Discord | https://github.com/GeopJr/DNOME |
+| Discord | https://github.com/ricewind012/discord-gnome-theme |
 | Obsidian | https://github.com/birneee/obsidian-adwaita-theme |
 | xfwm4 | https://github.com/FabianOvrWrt/adw-xfwm4 |
 
