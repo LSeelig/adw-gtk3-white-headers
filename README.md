@@ -32,9 +32,9 @@ A soft fork of [adw-gtk3](https://github.com/lassekongo83/adw-gtk3) that restore
 
 <div align="center">
 
-| Tarball | Repository | Flatpak | Source |
-|:---:|:---:|:---:|:---:|
-| 📦 [Download](https://github.com/lseelig/adw-gtk3-wh/releases/latest)  | ⬇️ [Unavailable](#repositories) | 📦 [See info below](#flatpak) | 🔧 [More information](src/README.md) |
+| Tarball | Repository | Flatpak | Source | Snap (Unavailable) |
+|:---:|:---:|:---:|:---:|:---:|
+| 📦 [Download](https://github.com/lassekongo83/adw-gtk3/releases/latest)  | ⬇️ [See info below](#repositories) | 📦 [See info below](#flatpak) | 🔧 [More information](src/README.md) | 📦 [See info below](#snap)
 
 If you download the tarball, then extract the content of the file to: `~/.local/share/themes/`
 
@@ -48,6 +48,18 @@ This fork cannot currently be installed from Flathub, so flatpak applications wi
 ```bash
 sudo flatpak override --filesystem=xdg-data/themes
 ```
+
+### Snap (Unavailable)
+
+Snap apps are unsupported by this fork because it is not available in Snapcraft.
+
+The official version of adw-gtk3 can be viewed by clicking the button below.
+
+<a href="https://snapcraft.io/gtk-theme-adw-gtk3">
+    <img alt="Get it from the Snap Store" src=https://snapcraft.io/en/dark/install.svg />
+  </a>
+
+
 #### How to activate the theme
 
 <sup>You may want to install this fork alongside the original theme. That way, if you encounter issues with white headerbars for a specific program, you can switch it to adw-gtk3 by prepending `GTK_THEME=adw-gtk3` to the exec in its desktop entry.</sup>
@@ -73,7 +85,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 ## Customization
 Adw-gtk3, adw-gtk3-wh and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
-<sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).</sub>
+<sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-changer](https://github.com/lassekongo83/adw-colors/tree/main/scripts/accent-color-change).</sub>
 
 ![adw-gtk3-wh-accent](images/preview-accent.png?raw=true)
 
